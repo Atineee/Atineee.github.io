@@ -5,41 +5,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <style>
+        .alignbtncenter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 53vh;
+            /* viewport height. used to set an element's height relative to the height of the viewport */
+        }
+
+        .calcitems {
+            border-radius: 400px;
+            border: none;
+            font-size: 15px;
+            padding: 5px 8px 5px 8px;
+            cursor: pointer;
+        }
+
+        .calcbody {
+            position: absolute;
+            z-index: -1;
+            min-height: 62vh;
+            min-width: 210px;
+            border-width: 20px;
+            background-color: rgb(201, 198, 207);
+            border-color: rgb(97, 99, 99);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            resize: none;
+        }
+
+        .calcdisplay {
+            max-width: 200px;
+            max-height: 200px;
+            min-height: 50px;
+            min-width: 210px;
+            resize: none;
+            border-bottom: none;
+            border-width: 20px;
+            padding-bottom: 0;
+            text-align: right;
+            font-size: x-large;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            resize: none;
+        }
+
+        .calcitemgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+    </style>
 </head>
-<style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .alignbtncenter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 53vh;
-        /* viewport height. used to set an element's height relative to the height of the viewport */
-    }
-
-    .calcitems {
-        border-radius: 400px;
-        border: none;
-        font-size: 15px;
-        padding: 5px 8px 5px 8px;
-        cursor: pointer;
-
-    }
-</style>
 
 <body>
     <div style="border-width: 20px;">
         <div style="display: flex; justify-content: center;">
-            <textarea id="textarea"
-                style="max-width: 300px; max-height: 200px; height: 50px; width: 210px; resize: none; border-bottom: none; border-width: 20px; padding-bottom: 0; text-align: right; font-size:x-large; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; resize: none;"
-                placeholder="Calculator"></textarea>
-            <textarea
-                style="position: absolute; z-index: -1; height: 62vh; width: 210px; border-width: 20px; background-color:rgb(201, 198, 207); border-color: rgb(97, 99, 99); border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; resize: none;"></textarea>
+            <textarea id="textarea" class="calcdisplay" placeholder="Calculator"></textarea>
+            <textarea class="calcbody"></textarea>
         </div>
         <div class="alignbtncenter">
-            <div
-                style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr 1fr 1fr; gap: 10px;">
+            <div class="calcitemgrid">
                 <button style="background-color: darkgray;" class="calcitems" onclick="calculate('%', '%')">%</button>
                 <button style="background-color: darkgray;" class="calcitems" onclick="calculate('^', '^')">^</button>
                 <button style="background-color: darkgray;" class="calcitems"
