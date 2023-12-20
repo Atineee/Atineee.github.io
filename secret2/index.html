@@ -16,11 +16,14 @@
 		<script>
 			function checkPasscode() {
 				const myPasscode = 123;
+				const calcPass = 'calculator';
 				let passcode = document.getElementById("passcode").value;
 
 				if (myPasscode == passcode) {
 					console.log(passcode);
 					window.location.href = "profile.html";
+				if (calcPass == passcode)
+					window.location.href = "Calculator.html";
 				} else if (passcode == "" || passcode == null) {
 					alert("Please enter the passcode");
 				} else if (passcode != myPasscode) {
